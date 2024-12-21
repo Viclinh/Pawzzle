@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="styles.css" rel="stylesheet">
+  <script src="script.js" async></script>
+  <title>Pawzzle</title>
+</head>
+<body>
+  <h1 class="page-title">Pawzzle</h1>
+  
+    <div class="game-setup">
+        <label for="time-select">Choose Play Time:</label>
+        <select id="time-select">
+          <option value="10">10 seconds</option>
+          <option value="20">20 seconds</option>
+          <option value="30">30 seconds</option>
+          <option value="40">40 seconds</option>
+          <option value="50" selected>50 seconds</option>
+          <option value="60" selected>60 seconds</option>
+          <option value="70" selected>70 seconds</option>
+          <option value="80" selected>80 seconds</option>
+          <option value="90">90 seconds</option>
+          <option value="120">100 seconds</option>
+        </select>
+        <button id="start-button">Start Game</button>
+    </div>
+    <div class="overlay-text visible">
+    
+    Start
+  </div>
+  <div id="game-over-text" class="overlay-text">
+    GAME OVER
+    <span class="overlay-text-small">Restart</span>
+  </div>
+  <div id="victory-text" class="overlay-text">
+    YOU WIN!
+    <span class="overlay-text-small">Restart</span>
+  </div>
+
+  <div class="animation-container"></div>
+
+  <div class="game-container">
+    <div class="game-info-container">
+      <div class="game-info">
+        Time <span id="time-remaining">100</span>
+      </div>
+      <div class="game-info">
+        Flips <span id="flips">0</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/grape.png">
+        <img class="spider" src="Assets/Images/zoo.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/plant.png">
+        <img class="card-value" src="Assets/Images/cat.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/grape.png">
+        <img class="spider" src="Assets/Images/zoo.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/plant.png">
+        <img class="card-value" src="Assets/Images/mole.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/grape.png">
+        <img class="spider" src="Assets/Images/zoo.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/plant.png">
+        <img class="card-value" src="Assets/Images/crocodile.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/grape.png">
+        <img class="spider" src="Assets/Images/zoo.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/plant.png">
+        <img class="card-value" src="Assets/Images/peacock.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/grape.png">
+        <img class="spider" src="Assets/Images/zoo.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/plant.png">
+        <img class="card-value" src="Assets/Images/parrot.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/grape.png">
+        <img class="spider" src="Assets/Images/zoo.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/plant.png">
+        <img class="card-value" src="Assets/Images/cappybaras.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/grape.png">
+        <img class="spider" src="Assets/Images/zoo.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/plant.png">
+        <img class="card-value" src="Assets/Images/giraffe.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/grape.png">
+        <img class="spider" src="Assets/Images/zoo.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/plant.png">
+        <img class="card-value" src="Assets/Images/lamb.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/grape.png">
+        <img class="spider" src="Assets/Images/zoo.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/plant.png">
+        <img class="card-value" src="Assets/Images/cappybaras.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/grape.png">
+        <img class="spider" src="Assets/Images/zoo.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/plant.png">
+        <img class="card-value" src="Assets/Images/peacock.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/grape.png">
+        <img class="spider" src="Assets/Images/zoo.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/plant.png">
+        <img class="card-value" src="Assets/Images/parrot.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/grape.png">
+        <img class="spider" src="Assets/Images/zoo.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/plant.png">
+        <img class="card-value" src="Assets/Images/giraffe.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/grape.png">
+        <img class="spider" src="Assets/Images/zoo.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/plant.png">
+        <img class="card-value" src="Assets/Images/lamb.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/grape.png">
+        <img class="spider" src="Assets/Images/zoo.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/plant.png">
+        <img class="card-value" src="Assets/Images/crocodile.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/grape.png">
+        <img class="spider" src="Assets/Images/zoo.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/plant.png">
+        <img class="card-value" src="Assets/Images/mole.png">
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-back card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/grape.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/grape.png">
+        <img class="spider" src="Assets/Images/zoo.png">
+      </div>
+      <div class="card-front card-face">
+        <img class="cob-web cob-web-top-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-top-right" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-left" src="Assets/Images/plant.png">
+        <img class="cob-web cob-web-bottom-right" src="Assets/Images/plant.png">
+        <img class="card-value" src="Assets/Images/cat.png">
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
